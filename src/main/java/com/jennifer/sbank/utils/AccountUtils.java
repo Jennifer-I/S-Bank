@@ -1,11 +1,13 @@
 package com.jennifer.sbank.utils;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 
+@Component
 @AllArgsConstructor
 public class AccountUtils {
     private Set<String> existingAccountNumbers;

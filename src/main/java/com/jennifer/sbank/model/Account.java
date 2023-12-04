@@ -2,7 +2,6 @@ package com.jennifer.sbank.model;
 
 import com.jennifer.sbank.enums.AccountType;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.*;
 
 
@@ -16,6 +15,7 @@ import java.util.List;
 @Setter
 @Entity
 @Builder
+@Table(name = "accounts")
 public class Account {
 
     @Id
@@ -26,7 +26,6 @@ public class Account {
     private String AccountNumber;
     private String FirstName;
     private String LastName;
-    @Email
     private String email;
     @Column(nullable = false)
     private BigDecimal balance;
@@ -37,8 +36,8 @@ public class Account {
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinColumn(name = "user")
+    private User user;
     @OneToMany(mappedBy = "sourceAccount")
     private List<Transaction> sourceTransactions;
 

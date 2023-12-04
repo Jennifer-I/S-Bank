@@ -1,5 +1,6 @@
 package com.jennifer.sbank.model;
 
+import com.jennifer.sbank.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "transactions")
 public class Transaction {
     @Id
     private Long transactionId;
@@ -21,7 +23,7 @@ public class Transaction {
     private String description;
     private BigDecimal amount;
     @ManyToOne
-    private Customer customer;
+    private User user;
     @ManyToOne
     @JoinColumn(name = "source_account_id")
     private Account sourceAccount;
@@ -29,5 +31,5 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "destination_account_id")
     private Account destinationAccount;
-
+    private TransactionType transactionType;
 }

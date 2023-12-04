@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/bank
+    url: jdbc:postgresql://localhost:5432/S-Bank
     username: postgres
-    password: 02468
+    password:
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
@@ -11,8 +11,11 @@ spring:
     properties:
       hibernate.format_sql: true
 server:
-    port: 8080
+    port: 8019
     servlet:
         context-path: /sbank
         session:
           timeout:30m
+jwt:
+  secret: ${JWT_SECRET}
+
