@@ -1,19 +1,54 @@
 package com.jennifer.sbank.utils;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 
-@AllArgsConstructor
+import java.util.Map;
+
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Data
+@Builder
 public class ApiResponse<T> {
-    private T data;
+
+    private String code;
     private String message;
-    private boolean status;
+    private T data;
+    private String status;
 
+    @JsonIgnore
 
-    public boolean getStatus() {
-        return status;
+    private HttpStatus httpStatus;
+
+    public ApiResponse(String code, String message, T data, String status) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+        this.status = status;
+    }
+
+    public ApiResponse(String code, String message, HttpStatus httpStatus) {
+        this.code = code;
+        this.message = message;
+        this.httpStatus = httpStatus;
+    }
+
+    public ApiResponse(Map<String, String> map) {
+        this.status = map.get("status");
+        this.message = map.get("message");
+    }
+
+    public ApiResponse(String message) {
+        this.message = message;
+    }
+
+    public ApiResponse(String code, String message) {
+        this.code = code;
+        this.message = message;
     }
 }
+
+

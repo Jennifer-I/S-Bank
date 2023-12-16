@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.stream.Stream;
 @Setter
 
 public class AppUserDetails implements UserDetails {
+
     private String email;
     private String fullName;
     private String password;
@@ -29,9 +31,18 @@ public class AppUserDetails implements UserDetails {
         this.isEnabled = user.getIsVerified();
         this.authorities = Stream.of(new SimpleGrantedAuthority(user.getRole().name()))
                 .collect(Collectors.toList());
+
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
     @Override
     public String getUsername() {
@@ -43,6 +54,10 @@ public class AppUserDetails implements UserDetails {
         return true;
     }
 
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
     @Override
     public boolean isCredentialsNonExpired() {
@@ -52,26 +67,5 @@ public class AppUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return isEnabled;
-    }
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-
-    public String getFullName() {
-        return fullName;
     }
 }

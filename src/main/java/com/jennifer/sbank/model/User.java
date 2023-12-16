@@ -26,15 +26,20 @@ public class User {
     private String phoneNumber;
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "users")
     private List<Account> account;
-    @JoinColumn
+    @JoinColumn(name = "address_id")
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Boolean isVerified = false;
+    private Boolean isVerified;
+    @Enumerated(EnumType.STRING)
     private Role role;
+
+    private LocalDateTime lastLoginDate;
+
 
 
 }

@@ -3,11 +3,13 @@ package com.jennifer.sbank.dto;
 import com.jennifer.sbank.enums.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class RegistrationRequest {
@@ -24,4 +26,11 @@ public class RegistrationRequest {
     private AccountType accountType;
     private String accountNumber;
 
+    public RegistrationRequest (String email, String firstName, String lastName, String phoneNumber, String password) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
 }

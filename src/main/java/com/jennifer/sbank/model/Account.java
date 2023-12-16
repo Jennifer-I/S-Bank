@@ -24,8 +24,8 @@ public class Account {
 
     @Column
     private String AccountNumber;
-    private String FirstName;
-    private String LastName;
+    private String firstName;
+    private String lastName;
     private String email;
     @Column(nullable = false)
     private BigDecimal balance;
@@ -36,8 +36,8 @@ public class Account {
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
     @ManyToOne
-    @JoinColumn(name = "user")
-    private User user;
+    @JoinColumn(name = "user_id")
+    private User users;
     @OneToMany(mappedBy = "sourceAccount")
     private List<Transaction> sourceTransactions;
 
