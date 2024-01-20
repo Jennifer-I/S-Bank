@@ -1,0 +1,29 @@
+{
+  "admin1": {
+    "admin1_john": {
+      "username": "admin1_john",
+      "password": "$2b$10$...",
+      "role": "ADMIN1"
+    },
+    "admin2_jane": {
+      "username": "admin2_jane",
+      "password": "$27$b$...",
+      "role": "ADMIN2"
+    },
+    "admin3_joe": {
+      "username": "admin2_joe",
+      "password": "$2a$5$...",
+      "role": "ADMIN1"
+    },
+    "admin4_jill": {
+      "username": "admin2_jill",
+      "password": "$2c$7$...",
+      "role": "ADMIN2"
+    },
+    "admin5_jack": {
+      "username": "admin2_jack",
+      "password": "$2b$9$",
+      "role": "ADMIN2"
+    }
+  }
+}

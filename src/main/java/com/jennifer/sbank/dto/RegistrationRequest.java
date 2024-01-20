@@ -1,6 +1,5 @@
 package com.jennifer.sbank.dto;
 
-import com.jennifer.sbank.enums.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

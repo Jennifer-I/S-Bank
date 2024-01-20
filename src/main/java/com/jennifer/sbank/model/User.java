@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 @Builder
 @Getter
@@ -27,10 +27,6 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "users")
-    private List<Account> account;
-    @JoinColumn(name = "address_id")
-    @OneToOne(cascade = CascadeType.ALL)
-    private Address address;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

@@ -18,7 +18,7 @@ import java.io.IOException;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class SBankFilter extends OncePerRequestFilter {
+public class AppFilter extends OncePerRequestFilter {
     private final JWTService jwtService;
     private final AppUserDetailsService appUserDetailsService;
 

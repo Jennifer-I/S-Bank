@@ -137,13 +137,6 @@ public class UserServiceImpl implements UserService {
             return userRepository.findByRole(role, pageable);
         }
 
-        public ApiResponse<User> getByEmail (String email){
-            Optional<User> user = userRepository.findByEmail(email);
-            if (user.isEmpty()) {
-                return new ApiResponse<>("01", "user not found", null, "false");
-            }
-            return new ApiResponse<>("00", "user found", user.get(), "true");
-        }
 
 
     }
